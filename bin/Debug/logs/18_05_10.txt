@@ -1,0 +1,20 @@
+﻿11:21: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 11273924-17  C«ng ty Cæ phÇn Vicem th­¬ng m¹i xi m¨ng  BN 1658  Xi m¨ng PCB30 bao Hoµng Th¹ch  Kg     
+11:21: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+11:24: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 11273924-17  C«ng ty Cæ phÇn Vicem th­¬ng m¹i xi m¨ng  BN 1658  Xi m¨ng PCB30 bao Hoµng Th¹ch  840002Kg     
+11:24: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+11:32: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 11273924-17  C«ng ty Cæ phÇn Vicem th­¬ng m¹i xi m¨ng  BN 1658  Xi m¨ng PCB30 bao Hoµng Th¹ch  840002Kg     
+11:32: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+11:32: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 20   840002   
+11:32: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+11:34: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 11273924-17  C«ng ty Cæ phÇn Vicem th­¬ng m¹i xi m¨ng  BN 1658  Xi m¨ng PCB30 bao Hoµng Th¹ch  840002Kg     
+11:34: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+11:34: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 20   840002   
+11:34: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+13:47: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 11273924-17  C«ng ty Cæ phÇn Vicem th­¬ng m¹i xi m¨ng  BN 1658  Xi m¨ng PCB30 bao Hoµng Th¹ch  840002Kg     
+13:47: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+13:47: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 20   840002   
+13:47: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+14:03: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 11274157-17  C«ng ty Cæ phÇn Vicem th­¬ng m¹i xi m¨ng  BN 1287  Xi m¨ng x©y tr¸t MC25 bao  Kg     
+14:03: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+14:03: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 20      0      
+14:03: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.

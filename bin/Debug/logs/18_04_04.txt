@@ -1,0 +1,20 @@
+﻿07:10: ERROR: Không kết nối được với cơ sở dữ liệu
+07:10: ERROR MESSAGE: The EXECUTE permission was denied on the object 'p_TaiKhoan_DangNhap', database 'DMZ', schema 'apps'.
+07:15: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 11274469-17  C«ng ty TNHH mét thµnh viªn th­¬ng m¹i vµ VËn t¶i §øc M¹nh  HD 0678  Xi m¨ng Hoµng Th¹ch PCB40-bao-gia c«ng t¹i H¹ Long (4040030008)  Kg     
+07:15: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+09:15: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 11307370-18  C«ng ty TNHH Mét Thµnh Viªn Th­¬ng M¹i L¹c Long  N§ 3076  Xi m¨ng PCB30 bao Hoµng Th¹ch  Kg     
+09:15: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+09:15: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 20      0      
+09:15: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+09:16: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 20    15565    
+09:16: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+09:16: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 20    38755    
+09:16: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+09:20: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 20   279998   
+09:20: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+09:22: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 20   485274   
+09:22: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+09:23: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 20   493540   
+09:23: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+10:52: ERROR: Không kết nối được với cơ sở dữ liệu
+10:52: ERROR MESSAGE: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)

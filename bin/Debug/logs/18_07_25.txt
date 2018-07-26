@@ -1,0 +1,4 @@
+﻿15:53: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 11274157-17  C«ng ty Cæ phÇn Vicem th­¬ng m¹i xi m¨ng  BN 1287  Xi m¨ng x©y tr¸t MC25 bao  Kg     
+15:53: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+15:53: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 20      0      
+15:53: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.

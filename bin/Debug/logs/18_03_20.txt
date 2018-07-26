@@ -1,0 +1,30 @@
+﻿10:57: ERROR: Không kết nối được với cơ sở dữ liệu
+10:57: ERROR MESSAGE: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+15:11: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 20   18458/0   
+15:11: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+15:34: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 11274405-17  Công ty Cổ phần Vicem thương mại xi măng  HN 0914     
+15:34: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+15:36: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 11274405-17  Công ty Cổ phần Vicem thương mại xi măng  HN 0914  Xi măng PCB40 bao Hoàng Thạch  220000Kg     
+15:36: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+15:36: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 20   220002   
+15:36: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+15:44: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 11274405-17  Công ty Cổ phần Vicem thương mại xi măng  HN 0914  Xi măng PCB40 bao Hoàng Thạch  220000Kg     
+15:44: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+15:44: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 20   220002   
+15:44: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+15:46: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 11274405-17  Công ty Cổ phần Vicem thương mại xi măng  HN 0914  Xi măng PCB40 bao Hoàng Thạch  220000Kg     
+15:46: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+15:46: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 20   220002   
+15:46: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+15:48: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 11274405-17  Công ty Cổ phần Vicem thương mại xi măng  HN 0914  Xi măng PCB40 bao Hoàng Thạch  220000Kg     
+15:48: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+16:05: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 11274405-17  Công ty Cổ phần Vicem thương mại xi măng  HN 0914  Xi măng PCB40 bao Hoàng Thạch  220000Kg     
+16:05: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+16:05: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 20   220002   
+16:05: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+16:10: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 11274405-17  Công ty Cổ phần Vicem thương mại xi măng  HN 0914  Xi măng PCB40 bao Hoàng Thạch  220000Kg     
+16:10: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+16:13: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 11274405-17  Công ty Cổ phần Vicem thương mại xi măng  HN 0914  Xi măng PCB40 bao Hoàng Thạch  220000Kg     
+16:13: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+16:13: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 20   220002   
+16:13: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.

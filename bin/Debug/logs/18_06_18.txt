@@ -1,0 +1,4 @@
+﻿11:00: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 11274237-17  C«ng ty TNHH  vËn t¶i vµ th­¬ng m¹i §¹i An  HD0929  Xi m¨ng Hoµng Th¹ch PCB40-bao-gia c«ng t¹i H¹ Long (4040030008) UPDATE  300002Kg     
+11:00: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+11:00: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 20   300002   
+11:00: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.

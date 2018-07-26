@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="XuatThuy.Controls.ChiTietCanControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:XuatThuy.Controls"
+             mc:Ignorable="d" 
+            xmlns:materialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            TextElement.FontWeight="Regular"
+            TextElement.FontSize="14"
+            TextOptions.TextFormattingMode="Ideal" 
+            TextOptions.TextRenderingMode="Auto"        
+            Background="{DynamicResource MaterialDesignPaper}"
+            FontFamily="{DynamicResource MaterialDesignFont}"
+             xmlns:utils="clr-namespace:XuatThuy.Utils"
+             d:DesignHeight="500" d:DesignWidth="700">
+    <UserControl.Resources>
+        <utils:TrangThaiPhieuConverter x:Key="TrangThaiPhieuConverter"></utils:TrangThaiPhieuConverter>
+    </UserControl.Resources>
+    <DataGrid
+        Margin="0 8 0 0"
+        ItemsSource="{Binding Items3}"
+        CanUserSortColumns="True"
+        CanUserAddRows="False"
+        AutoGenerateColumns="False"
+        materialDesign:DataGridAssist.CellPadding="13 8 8 8"
+        materialDesign:DataGridAssist.ColumnHeaderPadding="8">
+        <DataGrid.Columns>
+            <materialDesign:MaterialDataGridTextColumn
+                Binding="{Binding Stt}"
+                Header="Bước"
+                EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+            <!-- if you want to use the pop up style (MaterialDesignDataGridTextColumnPopupEditingStyle), you must use MaterialDataGridTextColumn -->
+            <materialDesign:MaterialDataGridTextColumn
+                Binding="{Binding Ket}"
+                Header="Két"
+                EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+            <!-- set a max length to get an indicator in the editor -->
+            <materialDesign:MaterialDataGridTextColumn
+                Binding="{Binding TLCan1}"
+                Header="Trọng lượng cân 1"
+                MaxLength="255"
+                EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+            <materialDesign:MaterialDataGridTextColumn
+                Binding="{Binding TLCan2}"
+                Header="Trọng lượng cân 2"
+                MaxLength="255"
+                EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+            <materialDesign:MaterialDataGridTextColumn
+                Binding="{Binding TLHang}"
+                Header="Trọng lượng hàng"
+                MaxLength="255"
+                EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+            <materialDesign:MaterialDataGridTextColumn
+                Binding="{Binding TrangThai, Converter={StaticResource TrangThaiPhieuConverter}}"
+                Header="Trạng thái"
+                MaxLength="50"
+                EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />            
+
+        </DataGrid.Columns>
+    </DataGrid>
+</UserControl>

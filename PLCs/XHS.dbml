@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DEV" EntityNamespace="xhs" ContextNamespace="xhs" Class="XHSDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=noibo2.hoangthach.vn;Initial Catalog=DEV;Persist Security Info=True;User ID=appl" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DEVConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="xhs.p_DanhSachTagDoc" Method="p_DanhSachTagDoc">
+    <ElementType Name="p_DanhSachTagDocResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenTrenPLC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GiaTri" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Flag_OK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MangXuatID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KieuDuLieu" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ChuoiDocGiaTri" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_DanhSachTag_Ghi" Method="p_DanhSachTag_Ghi">
+    <ElementType Name="p_DanhSachTag_GhiResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenTrenPLC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GiaTri" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Flag_OK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MangXuatID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KieuDuLieu" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ChuoiDocGiaTri" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="DBID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="PLCs.PLCKieuDuLieuTheoTen" Method="PLCKieuDuLieuTheoTen">
+    <Parameter Name="ten" Type="System.String" DbType="NVarChar(20)" />
+    <ElementType Name="PLCKieuDuLieuTheoTenResult">
+      <Column Name="KieuDuLieu" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

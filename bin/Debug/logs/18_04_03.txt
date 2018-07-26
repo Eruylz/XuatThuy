@@ -1,0 +1,19 @@
+﻿13:55: ERROR: Không kết nối được với cơ sở dữ liệu
+13:55: ERROR MESSAGE: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+13:56: ERROR: Không kết nối được với cơ sở dữ liệu
+13:56: ERROR MESSAGE: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+16:49: ERROR: Không kết nối được với cơ sở dữ liệu
+16:49: ERROR MESSAGE: Cannot open database "DEV" requested by the login. The login failed.
+Login failed for user 'appl'.
+16:50: ERROR: Không kết nối được với cơ sở dữ liệu
+16:50: ERROR MESSAGE: The EXECUTE permission was denied on the object 'p_TaiKhoan_DangNhap', database 'DMZ', schema 'apps'.
+16:52: ERROR: Không kết nối được với cơ sở dữ liệu
+16:52: ERROR MESSAGE: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 25 - Connection string is not valid)
+16:52: ERROR: Không kết nối được với cơ sở dữ liệu
+16:52: ERROR MESSAGE: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 25 - Connection string is not valid)
+16:55: ERROR: Không kết nối được với cơ sở dữ liệu
+16:55: ERROR MESSAGE: The EXECUTE permission was denied on the object 'p_TaiKhoan_DangNhap', database 'DMZ', schema 'apps'.
+16:57: ERROR: Không kết nối được với cơ sở dữ liệu
+16:57: ERROR MESSAGE: The EXECUTE permission was denied on the object 'p_TaiKhoan_DangNhap', database 'DMZ', schema 'apps'.
+16:58: ERROR: Không kết nối được với cơ sở dữ liệu
+16:58: ERROR MESSAGE: The EXECUTE permission was denied on the object 'p_TaiKhoan_DangNhap', database 'DMZ', schema 'apps'.

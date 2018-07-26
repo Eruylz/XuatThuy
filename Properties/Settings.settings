@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="XuatThuy.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DEVConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=nb11.hoangthach.vn,1435;Initial Catalog=DMZ;Persist Security Info=True;User ID=appl&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=nb11.hoangthach.vn,1435;Initial Catalog=DMZ;Persist Security Info=True;User ID=appl</Value>
+    </Setting>
+    <Setting Name="DEVConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=noibo2.hoangthach.vn;Initial Catalog=DEV;Persist Security Info=True;User ID=appl;Password=NSKpxIvJduS5qZksSEyMfCbohcfgqQ&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=noibo2.hoangthach.vn;Initial Catalog=DEV;Persist Security Info=True;User ID=appl;Password=NSKpxIvJduS5qZksSEyMfCbohcfgqQ</Value>
+    </Setting>
+    <Setting Name="DMZConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=nb11.hoangthach.vn,1435;Initial Catalog=DMZ;Persist Security Info=True;User ID=appl;Password=tpoQnFpqSsLqshQKagxvYsKD8yCPqO&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=nb11.hoangthach.vn,1435;Initial Catalog=DMZ;Persist Security Info=True;User ID=appl;Password=tpoQnFpqSsLqshQKagxvYsKD8yCPqO</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

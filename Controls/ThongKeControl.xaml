@@ -1,0 +1,115 @@
+﻿<UserControl x:Class="XuatThuy.Controls.ThongKeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+            xmlns:materialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            TextElement.FontWeight="Regular"
+            TextElement.FontSize="14"
+            TextOptions.TextFormattingMode="Ideal" 
+            TextOptions.TextRenderingMode="Auto"        
+            Background="{DynamicResource MaterialDesignPaper}"
+            FontFamily="{DynamicResource MaterialDesignFont}"
+             Height="768" Width="1066">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
+                <Setter Property="Margin" Value="0,5,0,5" />
+                <Setter Property="Height" Value="30"></Setter>
+                <Setter Property="Width" Value="300"></Setter>
+                <!--<Setter Property="HorizontalAlignment" Value="Left"></Setter>-->
+            </Style>
+            <Style TargetType="ComboBox" BasedOn="{StaticResource MaterialDesignFloatingHintComboBox}">
+                <Setter Property="Margin" Value="0,5,0,5" />
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <GroupBox Header="Thống kê theo thời gian" Margin="5 0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Từ ngày" VerticalAlignment="Center"></TextBlock>
+                    <DatePicker Grid.Column="1" Grid.Row="0" Width="300" materialDesign:HintAssist.Hint="Chọn ngày"
+                           SelectedDate="{Binding TuNgay}" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="0 5" />
+                    <TextBlock Grid.Column="2" Grid.Row="0" Text="Đến ngày" VerticalAlignment="Center"></TextBlock>
+                    <DatePicker Grid.Column="3" Grid.Row="0" Width="300" materialDesign:HintAssist.Hint="Chọn ngày"
+                            SelectedDate="{Binding DenNgay}" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="0 5" />                    
+                </Grid>
+
+            </GroupBox>
+            <GroupBox Header="Thống kê theo số phiếu" Margin="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Từ số phiếu" VerticalAlignment="Center"></TextBlock>
+                    <TextBox Grid.Column="1" Text="{Binding TuSoPhieu, Mode=TwoWay}" />
+                    <TextBlock Grid.Column="2" Text="Đến số phiếu" VerticalAlignment="Center"></TextBlock>
+                    <TextBox Grid.Column="3" Text="{Binding DenSoPhieu, Mode=TwoWay}" />
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="Thống kê theo tùy chọn" Margin="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Khách hàng" VerticalAlignment="Center"></TextBlock>
+                    <ComboBox Grid.Column="1" Grid.Row="0" Width="300" DisplayMemberPath="CustomerName" SelectedValuePath="CustomerID"
+                              SelectedItem="{Binding SelectedNhaPhanPhoi}"
+                              ItemsSource="{Binding ViewModelMain.NhaPhanPhois, Source={StaticResource Locator}}"  IsEditable="True" />
+                    <TextBlock Grid.Column="2" Grid.Row="0" Text="Nơi đến" VerticalAlignment="Center"></TextBlock>
+                    <ComboBox Grid.Column="3" Grid.Row="0" Width="300"  IsEditable="True" SelectedItem="{Binding SelectedArea}"
+                              ItemsSource="{Binding ViewModelMain.Areas, Source={StaticResource Locator}}" 
+                                      DisplayMemberPath="Name" SelectedValuePath="AreaID" />
+
+                    <TextBlock Grid.Column="0" Grid.Row="1" Text="Số lô xi măng" VerticalAlignment="Center"></TextBlock>
+                    <ComboBox Grid.Column="1" Grid.Row="1" Width="300" ItemsSource="{Binding SoLoVM.SoLos, Source={StaticResource Locator}}" 
+                            SelectedItem="{Binding SelectedSoLo, Mode=TwoWay}" DisplayMemberPath="Ten" SelectedValuePath="ID"/>
+                    <TextBlock Grid.Column="2" Grid.Row="1" Text="Số phiếu chất lượng" VerticalAlignment="Center"></TextBlock>
+                    <ComboBox Grid.Column="3" Grid.Row="1" Width="300" ItemsSource="{Binding PhieuChatLuongVM.PhieuChatLuongs, Source={StaticResource Locator}}"
+                            SelectedItem="{Binding SelectedPhieuChatLuong, Mode=TwoWay}" DisplayMemberPath="Ten" SelectedValuePath="ID"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="2" Text="Nhân viên XNTT" VerticalAlignment="Center"></TextBlock>
+                    <ComboBox Grid.Column="1" Grid.Row="2" Width="300" SelectedItem="{Binding SelectedNhanVienXuatHang}" 
+                            ItemsSource="{Binding ViewModelMain.NVXuatHangs, Source={StaticResource Locator}}" 
+                            DisplayMemberPath="HoVaTen" SelectedValuePath="CaNhanID"/>
+
+
+                    <TextBlock Grid.Column="0" Grid.Row="3" Text="Loại xi măng" VerticalAlignment="Center"></TextBlock>
+                    <ComboBox Grid.Column="1" Grid.Row="3" Width="300" SelectedItem="{Binding SelectedSanPham}"
+                                  ItemsSource="{Binding ViewModelMain.SanPhams, Source={StaticResource Locator}}" DisplayMemberPath="Ten" SelectedValuePath="ItemID" />
+                    <TextBlock Grid.Column="2" Grid.Row="2" Text="Ca xuất" VerticalAlignment="Center"></TextBlock>
+                    <ComboBox Grid.Column="3" Grid.Row="2" Width="300" SelectedItem="{Binding SelectedCa}"
+                              SelectedValuePath="ID" DisplayMemberPath="Ca" ItemsSource="{Binding ViewModelMain.CaXuats, Source={StaticResource Locator}}">
+                    </ComboBox>
+                </Grid>
+
+            </GroupBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Button Content="Thống kế" Command="{Binding CmdThongKe}" Margin="10 0"></Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,661 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DMZ" Class="XuatHangDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=nb11.hoangthach.vn,1435;Initial Catalog=DMZ;Persist Security Info=True;User ID=appl" SettingsObjectName="XuatThuy.Properties.Settings" SettingsPropertyName="DMZConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="apps.p_MatKhau_Xem" Method="p_MatKhau_Xem">
+    <Parameter Name="MatKhau" Parameter="matKhau" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Loai" Parameter="loai" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="Them" Parameter="them" Type="System.String" DbType="VarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="apps.p_TaiKhoan_DangNhap" Method="p_TaiKhoan_DangNhap">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" Direction="InOut" />
+    <Parameter Name="TenDangNhap" Parameter="tenDangNhap" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="MatKhau" Parameter="matKhau" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="IP" Parameter="iP" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="TenMayTinh" Parameter="tenMayTinh" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="TenHDH" Parameter="tenHDH" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="OsUser" Parameter="osUser" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="apps.p_TaiKhoan_DangXuat" Method="p_TaiKhoan_DangXuat">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="apps.p_TaiKhoan_LayTheoTen" Method="p_TaiKhoan_LayTheoTen">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="TenDangNhap" Parameter="tenDangNhap" Type="System.String" DbType="VarChar(100)" />
+    <ElementType Name="p_TaiKhoan_LayTheoTenResult">
+      <Column Name="TaiKhoanID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CaNhanID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenDangNhap" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TrangThai" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="PLCs.p_DanhSachTag_Ghi" Method="p_DanhSachTag_Ghi">
+    <ElementType Name="p_DanhSachTag_GhiResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenTrenPLC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GiaTri" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Flag_OK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MangXuatID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KieuDuLieu" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ChuoiDocGiaTri" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="DBID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="PLCs.p_DanhSachTagDoc" Method="p_DanhSachTagDoc">
+    <ElementType Name="p_DanhSachTagDocResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenTrenPLC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GiaTri" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Flag_OK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MangXuatID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KieuDuLieu" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ChuoiDocGiaTri" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="DBID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="PLCs.PLC_DanhSachDB" Method="PLC_DanhSachDB">
+    <ElementType Name="PLC_DanhSachDBResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenDB" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MangXuatID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenThietBi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="LoaiDB" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="PLCs.PLC_PLCLay" Method="PLC_PLCLay">
+    <ElementType Name="PLC_PLCLayResult">
+      <Column Name="CPUType" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IP" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Port" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Rack" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Slot" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TenCPU" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="PLCs.PLCKieuDuLieuTheoTen" Method="PLCKieuDuLieuTheoTen">
+    <Parameter Name="ten" Type="System.String" DbType="NVarChar(20)" />
+    <ElementType Name="PLCKieuDuLieuTheoTenResult">
+      <Column Name="KieuDuLieu" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_AREAS_Lay" Method="p_AREAS_Lay">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="p_AREAS_LayResult">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="area_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_DanhSachMangXuat" Method="p_DanhSachMangXuat">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="p_DanhSachMangXuatResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CheDo" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="MoTa" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="SoLoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="KiHieu" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ChiTiet" Type="System.String" DbType="NVarChar(153) NOT NULL" CanBeNull="false" />
+      <Column Name="TrangThai" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_DanhSachTag_Ghi" Method="p_DanhSachTag_Ghi1">
+    <ElementType Name="p_DanhSachTag_GhiResult1">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenTrenPLC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GiaTri" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Flag_OK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MangXuatID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KieuDuLieu" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ChuoiDocGiaTri" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="DBID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_DanhSachTagDoc" Method="p_DanhSachTagDoc1">
+    <ElementType Name="p_DanhSachTagDocResult1">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenTrenPLC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GiaTri" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Flag_OK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MangXuatID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KieuDuLieu" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ChuoiDocGiaTri" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_PhieuCan_ChiTiet_Can_KetThuc" Method="p_PhieuCan_ChiTiet_Can_KetThuc">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="TLCan2" Parameter="tLCan2" Type="System.Double" DbType="Float" />
+    <Parameter Name="TLHang" Parameter="tLHang" Type="System.Double" DbType="Float" />
+    <Parameter Name="ThoiDiemCan2" Parameter="thoiDiemCan2" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="xhs.p_PhieuCan_ChiTiet_Can_Lay" Method="p_PhieuCan_ChiTiet_Can_Lay">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="PhieuCanChiTietID" Parameter="phieuCanChiTietID" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="p_PhieuCan_ChiTiet_Can_LayResult">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="PhieuCanChiTietID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="STT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ket" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="ThoiDiemCan1" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ThoiDiemCan2" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TLCan1" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TLCan2" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TLHang" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_PhieuCan_ChiTiet_Can_LayTheoPC" Method="p_PhieuCan_ChiTiet_Can_LayTheoPC">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="PhieuCanID" Parameter="phieuCanID" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="p_PhieuCan_ChiTiet_Can_LayTheoPCResult">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="PhieuCanChiTietID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="STT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ket" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="ThoiDiemCan1" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ThoiDiemCan2" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TLCan1" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TLCan2" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TLHang" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_PhieuCan_ChiTiet_Can_Them" Method="p_PhieuCan_ChiTiet_Can_Them">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="LanCanID" Parameter="lanCanID" Type="System.Int64" DbType="BigInt" Direction="InOut" />
+    <Parameter Name="STT" Parameter="sTT" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Ket" Parameter="ket" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="PhieuCanChiTietID" Parameter="phieuCanChiTietID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="ThoiDiemCan1" Parameter="thoiDiemCan1" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="TLCan1" Parameter="tLCan1" Type="System.Double" DbType="Float" />
+    <Parameter Name="TLCan2" Parameter="tLCan2" Type="System.Double" DbType="Float" />
+    <Parameter Name="TLHang" Parameter="tLHang" Type="System.Double" DbType="Float" />
+    <Parameter Name="TrangThai" Parameter="trangThai" Type="System.Byte" DbType="TinyInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="xhs.p_PhieuCan_ChiTiet_KetThuc" Method="p_PhieuCan_ChiTiet_KetThuc">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="SoTongKetThuc" Parameter="soTongKetThuc" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="xhs.p_PhieuCan_ChiTiet_Lay" Method="p_PhieuCan_ChiTiet_Lay">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="PhieuCanID" Parameter="phieuCanID" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="p_PhieuCan_ChiTiet_LayResult">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="PhieuCanID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="MangXuatID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NV_XuatHang_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NV_BaoVe_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoTongPLC_TruocCan" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SoTongKetThuc" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="NgayThongKe" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ca" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="TaiKhoanTaoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TaiKhoanSuaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgaySua" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NVXuatHang" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NVBaoVe" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MangXuat" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TrangThai" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_PhieuCan_KetThuc" Method="p_PhieuCan_KetThuc">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="TLXuat" Parameter="tLXuat" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="xhs.p_PhieuCan_Lay" Method="p_PhieuCan_Lay">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="p_PhieuCan_LayResult">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Order_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="BienSo1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BienSo2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ChuPhuongTien" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HinhThucCan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OFFLINE_FLAG" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="TLXuat" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TLDangKy" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LoaiGiaoDich" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SoChi" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SoLoID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PhieuChatLuongID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TaiKhoanTaoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TaiKhoanSuaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgaySua" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SoPhieuCu" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MSGH" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="NgayDongBo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TrangThaiDongBo" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_PhieuCan_LayLuongXuat" Method="p_PhieuCan_LayLuongXuat">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="PhieuCanID" Parameter="phieuCanID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="LuongXuat" Parameter="luongXuat" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="xhs.p_PhieuCan_LayTheoID" Method="p_PhieuCan_LayTheoID">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="p_PhieuCan_LayTheoIDResult">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Order_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="BienSo1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BienSo2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ChuPhuongTien" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HinhThucCan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OFFLINE_FLAG" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="TLXuat" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TLThucXuat" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TLDangKy" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LoaiGiaoDich" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SoChi" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SoLoID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SoLo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PhieuChatLuongID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PhieuChatLuong" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="NgayCapPCL" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TaiKhoanTaoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TaiKhoanSuaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgaySua" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SoPhieuCu" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MSGH" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="NgayDongBo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TrangThaiDongBo" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_PhieuCan_LayXiMangRoiThuy" Method="p_PhieuCan_LayXiMangRoiThuy">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="p_PhieuCan_LayXiMangRoiThuyResult">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Order_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="BienSo1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BienSo2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ChuPhuongTien" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HinhThucCan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OFFLINE_FLAG" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="TLXuat" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TLThucXuat" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TLDangKy" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LoaiGiaoDich" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SoChi" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SoLoID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PhieuChatLuongID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TaiKhoanTaoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TaiKhoanSuaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgaySua" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SoPhieuCu" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MSGH" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="NgayDongBo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TrangThaiDongBo" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="TenSanPham" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="CUSTOMER_NAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DELIVERY_CODE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_PhieuCan_MaChi_Lay" Method="p_PhieuCan_MaChi_Lay">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="PhieuCanID" Parameter="phieuCanID" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="p_PhieuCan_MaChi_LayResult">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="PhieuCan_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MaChi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ViTriChi" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="TaiKhoanTaoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TaiKhoanSuaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgaySua" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_PhieuCan_MaChi_Sua" Method="p_PhieuCan_MaChi_Sua">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="MaChiID" Parameter="maChiID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="MaChi" Parameter="maChi" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="xhs.p_PhieuCan_MaChi_Them" Method="p_PhieuCan_MaChi_Them">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="MaChiID" Parameter="maChiID" Type="System.Int64" DbType="BigInt" Direction="InOut" />
+    <Parameter Name="PhieuCanID" Parameter="phieuCanID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="MaChi" Parameter="maChi" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ViTriChi" Parameter="viTriChi" Type="System.String" DbType="NVarChar(250)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="xhs.p_PhieuCan_SuaTrangThai" Method="p_PhieuCan_SuaTrangThai">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="TrangThai" Parameter="trangThai" Type="System.Byte" DbType="TinyInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="xhs.p_PhieuCan_Them" Method="p_PhieuCan_Them">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="PhieuCanID" Parameter="phieuCanID" Type="System.Int64" DbType="BigInt" Direction="InOut" />
+    <Parameter Name="Order_ID" Parameter="order_ID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="BienSo1" Parameter="bienSo1" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="BienSo2" Parameter="bienSo2" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ChuPhuongTien" Parameter="chuPhuongTien" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="HinhThucCan" Parameter="hinhThucCan" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="OFFLINE_FLAG" Parameter="oFFLINE_FLAG" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="TLDangKy" Parameter="tLDangKy" Type="System.Double" DbType="Float" />
+    <Parameter Name="TrangThaiDongBo" Parameter="trangThaiDongBo" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="SoLoID" Parameter="soLoID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="PhieuChatLuongID" Parameter="phieuChatLuongID" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="xhs.p_PhieuCan_ThemThucXuat" Method="p_PhieuCan_ThemThucXuat">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="TLThucXuat" Parameter="tLThucXuat" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="xhs.p_PhieuCan_ThongKe" Method="p_PhieuCan_ThongKe">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="FromID" Parameter="fromID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="ToID" Parameter="toID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FromDate" Parameter="fromDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ToDate" Parameter="toDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="CustomerID" Parameter="customerID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AreaID" Parameter="areaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SoLoID" Parameter="soLoID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="PhieuChatLuongID" Parameter="phieuChatLuongID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="NvTieuThuID" Parameter="nvTieuThuID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SanPhamID" Parameter="sanPhamID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CaXuat" Parameter="caXuat" Type="System.Byte" DbType="TinyInt" />
+    <ElementType Name="p_PhieuCan_ThongKeResult">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="BienSo1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TLXuat" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TLThucXuat" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TLDangKy" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="NgaySua" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DELIVERY_CODE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_PhieuChatLuong_Lay" Method="p_PhieuChatLuong_Lay">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="p_PhieuChatLuong_LayResult">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="NgayCap" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_PhieuChatLuong_Sua" Method="p_PhieuChatLuong_Sua">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Ten" Parameter="ten" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="NgayCap" Parameter="ngayCap" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="xhs.p_PhieuChatLuong_Them" Method="p_PhieuChatLuong_Them">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Int64" DbType="BigInt" Direction="InOut" />
+    <Parameter Name="Ten" Parameter="ten" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="NgayCap" Parameter="ngayCap" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="xhs.p_PhieuChatLuong_Xoa" Method="p_PhieuChatLuong_Xoa">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="xhs.p_PhuongThucVanChuyen_Lay" Method="p_PhuongThucVanChuyen_Lay">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="p_PhuongThucVanChuyen_LayResult">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_SALES_ORDERS_Lay" Method="p_SALES_ORDERS_Lay">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="DELIVERY_CODE" Parameter="dELIVERY_CODE" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="p_SALES_ORDERS_LayResult">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ORDER_QUANTITY" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="UOM_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="CUSTOMER_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CUSTOMER_NAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CHECKPOINT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CHECKPOINT_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AREA_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AREA_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="INVENTORY_ITEM_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenSanPham" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="MacSP" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="TRANSPORT_METHOD_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DELIVERY_CODE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ORDER_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DRIVER_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="VEHICLE_CODE" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_SALES_ORDERS_LayTheoID" Method="p_SALES_ORDERS_LayTheoID">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="p_SALES_ORDERS_LayTheoIDResult">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ORDER_QUANTITY" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="UOM_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="CUSTOMER_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CUSTOMER_NAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CHECKPOINT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CHECKPOINT_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AREA_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AREA_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="INVENTORY_ITEM_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenSanPham" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="MacSP" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="TRANSPORT_METHOD_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DELIVERY_CODE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ORDER_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DRIVER_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="VEHICLE_CODE" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_SALES_ORDERS_LayXuatThuyXMRoi" Method="p_SALES_ORDERS_LayXuatThuyXMRoi">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="p_SALES_ORDERS_LayXuatThuyXMRoiResult">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ORDER_QUANTITY" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="UOM_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="CUSTOMER_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CUSTOMER_NAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CHECKPOINT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CHECKPOINT_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AREA_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AREA_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="INVENTORY_ITEM_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenSanPham" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="MacSP" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="TRANSPORT_METHOD_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DELIVERY_CODE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ORDER_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DRIVER_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="VEHICLE_CODE" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_SALES_ORDERS_TimKiem" Method="p_SALES_ORDERS_TimKiem">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="DELIVERY_CODE" Parameter="dELIVERY_CODE" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="p_SALES_ORDERS_TimKiemResult">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ORDER_QUANTITY" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="UOM_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="CUSTOMER_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CUSTOMER_NAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CHECKPOINT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CHECKPOINT_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AREA_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AREA_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="INVENTORY_ITEM_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenSanPham" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="MacSP" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="TRANSPORT_METHOD_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DELIVERY_CODE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ORDER_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DRIVER_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="VEHICLE_CODE" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_SanPham_Lay" Method="p_SanPham_Lay">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="p_SanPham_LayResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ItemID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="MacSP" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_SoloXMRoi_Lay" Method="p_SoloXMRoi_Lay">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="p_SoloXMRoi_LayResult">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TrangThai" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_SoloXMRoi_Sua" Method="p_SoloXMRoi_Sua">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Ten" Parameter="ten" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="xhs.p_SoloXMRoi_Them" Method="p_SoloXMRoi_Them">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Int64" DbType="BigInt" Direction="InOut" />
+    <Parameter Name="Ten" Parameter="ten" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="xhs.p_SoloXMRoi_Xoa" Method="p_SoloXMRoi_Xoa">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="apps.P_CaNhan_LayTheoID" Method="P_CaNhan_LayTheoID">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="CaNhanID" Parameter="caNhanID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="P_CaNhan_LayTheoIDResult">
+      <Column Name="CaNhanID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HoVaTen" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CanCuoc" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="GioiTinh" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NoiSinhID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoDienThoai" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="HomThu" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TaiKhoanTaoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TaiKhoanSuaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NgaySua" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="AnhDaiDien" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_NhanVien_Lay" Method="p_NhanVien_Lay">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="p_NhanVien_LayResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CaNhanID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ToChucID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HoVaTen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="smss.p_SMS_NPP_Lay" Method="p_SMS_NPP_Lay">
+    <ElementType Name="p_SMS_NPP_LayResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ToChucID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CUSTOMER_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CUSTOMER_NAME" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="xhs.p_PhieuCan_ChiTiet_Can_CapNhat" Method="p_PhieuCan_ChiTiet_Can_CapNhat">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="TLCan1" Parameter="tLCan1" Type="System.Double" DbType="Float" />
+    <Parameter Name="TLCan2" Parameter="tLCan2" Type="System.Double" DbType="Float" />
+    <Parameter Name="TLHang" Parameter="tLHang" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="xhs.p_PhieuCan_ChiTiet_Them" Method="p_PhieuCan_ChiTiet_Them">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="PhieuCanChiTietID" Parameter="phieuCanChiTietID" Type="System.Int64" DbType="BigInt" Direction="InOut" />
+    <Parameter Name="PhieuCanID" Parameter="phieuCanID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="MangXuatID" Parameter="mangXuatID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NV_XuatHang_ID" Parameter="nV_XuatHang_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NV_BaoVe_ID" Parameter="nV_BaoVe_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SoTongPLC_TruocCan" Parameter="soTongPLC_TruocCan" Type="System.Double" DbType="Float" />
+    <Parameter Name="Ca" Parameter="ca" Type="System.Byte" DbType="TinyInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="xhs.p_PhieuCan_ChiTiet_Sua" Method="p_PhieuCan_ChiTiet_Sua">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="NVXuatHang" Parameter="nVXuatHang" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NVBaoVeID" Parameter="nVBaoVeID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="xhs.p_SALES_ORDERS_SuaTrangThai" Method="p_SALES_ORDERS_SuaTrangThai">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="xhs.p_PhieuCan_LayTheoOrder" Method="p_PhieuCan_LayTheoOrder">
+    <Parameter Name="GID" Parameter="gID" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="OrderID" Parameter="orderID" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="p_PhieuCan_LayTheoOrderResult">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Order_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="BienSo1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BienSo2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ChuPhuongTien" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HinhThucCan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OFFLINE_FLAG" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="TLXuat" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TLThucXuat" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TLDangKy" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="LoaiGiaoDich" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SoChi" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SoLoID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PhieuChatLuongID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TaiKhoanTaoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TaiKhoanSuaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgaySua" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SoPhieuCu" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MSGH" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="NgayDongBo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TrangThaiDongBo" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="TenSanPham" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="CUSTOMER_NAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DELIVERY_CODE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

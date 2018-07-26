@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="XuatThuy.Controls.DSPhieuCanControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:XuatThuy.Controls"
+             mc:Ignorable="d" 
+            DataContext="{Binding DSPhieuCanVM, Source={StaticResource Locator}}"
+            xmlns:materialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            TextElement.FontWeight="Regular"
+            TextElement.FontSize="14"
+            TextOptions.TextFormattingMode="Ideal" 
+            TextOptions.TextRenderingMode="Auto"        
+            Background="{DynamicResource MaterialDesignPaper}"
+            FontFamily="{DynamicResource MaterialDesignFont}"
+             Height="768" Width="1066">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid Margin="5 0 0 0" Grid.Row="0" x:Name="dgrPhieuCans"
+            CanUserSortColumns="True"
+            CanUserAddRows="False"
+            AutoGenerateColumns="False" SelectedItem="{Binding SelectedPhieuCan, Mode=TwoWay}"
+            materialDesign:DataGridAssist.CellPadding="13 8 8 8"
+            materialDesign:DataGridAssist.ColumnHeaderPadding="8"
+            Grid.ColumnSpan="4" ScrollViewer.VerticalScrollBarVisibility="Auto"
+            SelectionMode="Extended"  ItemsSource="{Binding PhieuCans}">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                    <Setter Property="Background" Value="#2196F3"></Setter>
+                    <Setter Property="Foreground" Value="White"></Setter>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <materialDesign:MaterialDataGridTextColumn Binding="{Binding ID}" Header="Số phiếu"
+                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                <materialDesign:MaterialDataGridTextColumn Binding="{Binding DeliveryCode}" Header="MSGH"
+                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />                
+                <materialDesign:MaterialDataGridTextColumn Binding="{Binding TLDangKy}" Header="TL đăng ký"
+                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                <materialDesign:MaterialDataGridTextColumn Binding="{Binding TLXuat}" Header="TL xuất"
+                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                <materialDesign:MaterialDataGridTextColumn Binding="{Binding TLThucXuat}" Header="TL thực xuất"
+                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                <!--<materialDesign:MaterialDataGridTextColumn Binding="{Binding CUSTOMER_NAME}" Header="Khách hàng"
+                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />-->
+                <materialDesign:MaterialDataGridTextColumn Binding="{Binding BienSo1}" Header="Biển số tầu"
+                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                <materialDesign:MaterialDataGridTextColumn Binding="{Binding ChuPhuongTien}" Header="Chủ phương tiện"
+                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                <materialDesign:MaterialDataGridTextColumn Binding="{Binding SoChi}" Header="Số chì"
+                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Command="{Binding Path=DataContext.CmdNhapMaChi, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                   CommandParameter="{Binding}">Mã chì</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Command="{Binding Path=DataContext.CmdNhapThucXuat, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                   CommandParameter="{Binding}">Thực xuất</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                    <Setter Property="MinWidth" Value="100"></Setter>
+                    <Setter Property="Margin" Value="10 0 0 0"></Setter>
+                </Style>
+            </StackPanel.Resources>
+
+            <Button IsEnabled="true" Content="Phiếu lấy mẫu" Command="{Binding CmdInPhieuLayMau}"></Button>
+            <Button IsEnabled="True" Content="Thống kê" Command="{Binding CmdThongKe}"></Button>
+            <Button IsEnabled="true"  Command="{Binding CmdInNhiet}" Content="In nhiệt"></Button>
+            <!--<Button IsEnabled="True"  Command="{Binding CmdInA6}" Content="In A6"></Button>-->
+            <Button IsEnabled="True"  Command="{Binding CmdInA4}" Content="In A4"></Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

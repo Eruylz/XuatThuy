@@ -1,0 +1,270 @@
+﻿<UserControl x:Class="XuatThuy.Controls.PhieuCanControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:XuatThuy.Controls"
+             xmlns:converter="clr-namespace:XuatThuy.Utils"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
+             mc:Ignorable="d" 
+            DataContext="{Binding ViewModelPhieuCan, Source={StaticResource Locator}}"
+            xmlns:materialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            TextElement.FontWeight="Regular"
+            TextElement.FontSize="14"
+            TextOptions.TextFormattingMode="Ideal" 
+            TextOptions.TextRenderingMode="Auto"        
+            Background="{DynamicResource MaterialDesignPaper}"
+            FontFamily="{DynamicResource MaterialDesignFont}"
+             Height="768" Width="1066">
+    <UserControl.Resources>
+        <converter:TrangThaiPhieuConverter x:Key="TrangThaiPhieuConverter"></converter:TrangThaiPhieuConverter>
+        <converter:PlcStatusBoolToColor x:Key="plcStatusBoolToColor"></converter:PlcStatusBoolToColor>
+        <converter:TrangThaiPhieuBoolToColor x:Key="trangThaiPhieuBoolToColor"></converter:TrangThaiPhieuBoolToColor>
+        <converter:DoubleToString x:Key="doubleToString"></converter:DoubleToString>
+        <ControlTemplate x:Key="validationTemplate">
+            <DockPanel>
+                <!--<TextBlock Foreground="Red" FontSize="20">!</TextBlock>-->
+                <TextBlock FontStyle="Italic" Foreground="Red" HorizontalAlignment="Left" Margin="0,1" Text="{Binding Path=ErrorContent}"/>
+                <AdornedElementPlaceholder/>
+            </DockPanel>
+        </ControlTemplate>
+        <DataTemplate DataType="{x:Type ValidationError}">
+            <TextBlock FontStyle="Italic" Foreground="Red" HorizontalAlignment="Left" Margin="0,1" Text="{Binding Path=ErrorContent}"/>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <!--<ColumnDefinition Width="300"></ColumnDefinition>-->
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5">
+                <!--<TextBlock Text="Thông tin phiếu xuất" FontSize="16" FontWeight="Bold" Margin="0 0 0 10"></TextBlock>-->
+                <materialDesign:Card>
+                    <Grid>
+                        <Grid.Resources >
+                            <Style TargetType="ComboBox">
+                                <Setter Property="Margin" Value="0,5,0,5" />
+                                <Setter Property="Height" Value="30"></Setter>
+                                <Setter Property="Width" Value="330"></Setter>
+                            </Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Margin" Value="0,5,0,5" />
+                                <Setter Property="Height" Value="30"></Setter>
+                            </Style>
+                            <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
+                                <Setter Property="Margin" Value="0,5,0,5" />
+                                <Setter Property="Height" Value="30"></Setter>
+                                <Setter Property="Width" Value="330"></Setter>
+                                <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+                            </Style>
+                            <Style TargetType="DatePicker">
+                                <Setter Property="Margin" Value="0,5,0,5" />
+                                <Setter Property="Height" Value="30"></Setter>
+                                <Setter Property="Width" Value="330"></Setter>
+                                <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="29*"></RowDefinition>
+                            <RowDefinition Height="29*"></RowDefinition>
+                            <RowDefinition Height="40*"></RowDefinition>
+                            <RowDefinition Height="40*"></RowDefinition>
+                            <RowDefinition Height="40*"></RowDefinition>
+                            <RowDefinition Height="0*"></RowDefinition>
+                            <RowDefinition Height="40*"></RowDefinition>
+                            <RowDefinition Height="40*"></RowDefinition>
+                            <RowDefinition Height="40*"></RowDefinition>
+                            <RowDefinition Height="19*"></RowDefinition>
+                            <RowDefinition Height="21*"/>
+                            <RowDefinition Height="29*"></RowDefinition>
+                            <RowDefinition Height="40*"></RowDefinition>
+                            <RowDefinition Height="40*"></RowDefinition>
+                            <RowDefinition Height="13*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Content="CÔNG TY XI MĂNG VICEM HOÀNG THẠCH"></Label>
+                        <StackPanel Margin="20 0 0 0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalAlignment="Center">
+                            <Label  Content="Số .."></Label>
+                            <TextBlock FontWeight="Bold" Text="{Binding PlcViewModel.Sophieu, Source={StaticResource Locator}}"></TextBlock>
+                            <Label  Content="... /XMHT-XNTT"></Label>
+                        </StackPanel>
+
+                        <Label Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="0" Content="PHIẾU GIAO NHẬN XI MĂNG RỜI"></Label>
+                        <Label Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Content="TRẠM CÂN XUẤT THỦY XI MĂNG RỜI CT34"></Label>
+                        <Label Content="Mã số giao hàng:" Grid.Column="0" Grid.Row="2"></Label>
+                        <ComboBox HorizontalAlignment="Left" SelectedItem="{Binding SelectedSalesOrder, Mode=TwoWay}" ItemsSource="{Binding SalesOrders}" 
+                                  Grid.Column="1" Grid.Row="2" DisplayMemberPath="DELIVERY_CODE" SelectedValuePath="ID" Width="330">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="DropDownOpened">
+                                    <cmd:EventToCommand Command="{Binding Mode=OneWay, Path=CmdSalesOrdersOpening}"
+                                        PassEventArgsToCommand="True" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </ComboBox>
+                        <!--<StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2">
+                                    <TextBox Name="txtMSGH" Width="230" Text="{Binding salesOrder.DELIVERY_CODE, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+                                    <Button Width="100" Style="{StaticResource MaterialDesignRaisedButton}" Content="Lấy MSGH" Command="{Binding CmdLayMSGH}"></Button>
+                                </StackPanel>-->
+                        <Label Content="Mã hàng " Grid.Column="0" Grid.Row="3"></Label>
+                        <TextBox HorizontalAlignment="Left" IsReadOnly="True" Text="{Binding SelectedSalesOrder.MacSP}" Width="330" Grid.Column="1" Grid.Row="3">
+                        </TextBox>
+                        <Label Content="KL xuất PC " Grid.Column="2" Grid.Row="3"></Label>
+                        <StackPanel Grid.Column="3" Grid.Row="3" Orientation="Horizontal">
+                            <TextBox HorizontalAlignment="Left" Name="txtTLXuat" Text="{Binding PLCSetPoint, Mode=TwoWay, Converter={StaticResource doubleToString}}" Width="280" >
+                            </TextBox>
+                            <TextBox Margin="5 0 0 0" Text="Kg" Width="45" Height="30"></TextBox>
+                        </StackPanel>
+                        <Label Content="Tổng KL đặt " Grid.Column="2" Grid.Row="2"></Label>
+                        <StackPanel Grid.Column="3" Grid.Row="2" Orientation="Horizontal">
+                            <TextBox HorizontalAlignment="Left" Text="{Binding SelectedSalesOrder.ORDER_QUANTITY, Converter={StaticResource doubleToString}}" Width="280" >
+                            </TextBox>
+                            <TextBox Margin="5 0 0 0" Text="Tấn" Width="45" Height="30"></TextBox>
+                        </StackPanel>
+                        <Label Content="Loại XM: " Grid.Column="0" Grid.Row="4"></Label>
+                        <ComboBox IsEnabled="False" HorizontalAlignment="Left" SelectedValue="{Binding SelectedSalesOrder.INVENTORY_ITEM_ID}" 
+                                  ItemsSource="{Binding SanPhams}" DisplayMemberPath="Ten" SelectedValuePath="ItemID" Width="330" Grid.Column="1" Grid.Row="4">
+                        </ComboBox>
+
+                        <!--<Label Content="Phương thức vc: " Grid.Column="0" Grid.Row="4"></Label>
+                        <ComboBox HorizontalAlignment="Left" ItemsSource="{Binding PTVCs}" DisplayMemberPath="Ten" 
+                                          SelectedValuePath="ID" Width="330" Grid.Column="1" Grid.Row="4" IsEnabled="False"
+                                          SelectedValue="{Binding SelectedSalesOrder.TRANSPORT_METHOD_ID}">
+                        </ComboBox>-->
+                        <Label Content="Nơi đến: " Grid.Column="2" Grid.Row="4"></Label>
+                        <ComboBox IsEnabled="False" SelectedValue="{Binding SelectedSalesOrder.AREA_ID}" 
+                                      HorizontalAlignment="Left" ItemsSource="{Binding Areas}" 
+                                      DisplayMemberPath="Name" SelectedValuePath="AreaID" Grid.Column="3" Grid.Row="4">
+                        </ComboBox>
+
+                        <Label Content="Bên nhận hàng:" FontWeight="Bold" Grid.Column="0" Grid.Row="6"></Label>
+                        <ComboBox IsEnabled="False" HorizontalAlignment="Left" SelectedValue="{Binding SelectedSalesOrder.CUSTOMER_ID}" 
+                                  ItemsSource="{Binding ViewModelMain.NhaPhanPhois, Source={StaticResource Locator}}"
+                                  DisplayMemberPath="CustomerName" SelectedValuePath="CustomerID"  Width="700" 
+                                  Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="6">
+                        </ComboBox>
+
+                        <Label Content="1-Người nhận xi măng" Grid.Column="0" Grid.Row="7"></Label>
+                        <TextBox HorizontalAlignment="Left" Text="{Binding SelectedSalesOrder.DRIVER_NAME}" Grid.Column="1" Grid.Row="7">
+                        </TextBox>
+                        <Label Content="2-Lái tàu" Grid.Column="2" Grid.Row="7"></Label>
+                        <TextBox HorizontalAlignment="Left" Text="{Binding SelectedSalesOrder.DRIVER_NAME}" Name="txtLaiTau"  Grid.Column="3" Grid.Row="7">
+                        </TextBox>
+
+                        <Label Content="Số tàu" Grid.Column="0" Grid.Row="8"></Label>
+                        <TextBox IsEnabled="False" HorizontalAlignment="Left" Name="txtSoTau" Text="{Binding SelectedSalesOrder.VEHICLE_CODE}" Grid.Column="1" Grid.Row="8">
+                        </TextBox>
+                        <Label Content="Số đuôi tàu" Grid.Column="2" Grid.Row="8"></Label>
+                        <TextBox IsEnabled="False" HorizontalAlignment="Left" Name="txtSoDuoiTau"  Grid.Column="3" Grid.Row="8">
+                        </TextBox>
+
+
+                        <Label Content="Bên xuất hàng" FontWeight="Bold" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="9"></Label>
+
+                        <Label Content="NV xuất hàng: " Grid.Column="0" Grid.Row="10"></Label>
+                        <ComboBox HorizontalAlignment="Left" Name="cbxNVXuatHang" SelectedItem="{Binding SelectedNhanVienXuatHang}" ItemsSource="{Binding NVXuatHangs}" 
+                                  DisplayMemberPath="HoVaTen" SelectedValuePath="CaNhanID" Width="330" Grid.Column="1" Grid.Row="10" Margin="0,5,0,0" VerticalAlignment="Top">
+                        </ComboBox>
+
+                        <Label Content="NV bảo vệ: " Grid.Column="2" Grid.Row="10"></Label>
+
+                        <ComboBox HorizontalAlignment="Left" Name="cbxNVBaoVe" SelectedItem="{Binding SelectedNhanVienBaoVe}"
+                                          ItemsSource="{Binding NVBaoVes}" DisplayMemberPath="HoVaTen" SelectedValuePath="CaNhanID" Grid.Column="3" Grid.Row="10">
+                        </ComboBox>
+
+                        <Label Content="Hình thức cân" Grid.Column="0" Grid.Row="11"></Label>
+                        <ComboBox IsEnabled="False" HorizontalAlignment="Left" Name="cbxHinhThucCan" Grid.Column="1" Grid.Row="11">
+                        </ComboBox>
+                        <Label Content="Số lô xi măng xuất" Grid.Column="2" Grid.Row="11"></Label>
+                        <ComboBox HorizontalAlignment="Left" ItemsSource="{Binding SoLoVM.SoLos, Source={StaticResource Locator}}" 
+                                          SelectedItem="{Binding SelectedSoLo, Mode=TwoWay}" DisplayMemberPath="Ten" SelectedValuePath="ID" Grid.Column="3" Grid.Row="11">
+                        </ComboBox>
+
+                        <Label Content="Số phiếu chất lượng" Grid.Column="0" Grid.Row="12" Grid.RowSpan="2"></Label>
+                        <!--<TextBox Name="txtSoPhieuChatLuong" Grid.Column="1" Grid.Row="12" Grid.RowSpan="2"></TextBox>-->
+                        <ComboBox Grid.Column="1" Grid.Row="12" Grid.RowSpan="2" HorizontalAlignment="Left"
+                                          ItemsSource="{Binding PhieuChatLuongVM.PhieuChatLuongs, Source={StaticResource Locator}}"
+                                          SelectedItem="{Binding SelectedPhieuChatLuong, Mode=TwoWay}" DisplayMemberPath="Ten" SelectedValuePath="ID"></ComboBox>
+                        <Label Content="Ngày cấp PCL" Grid.Column="2" Grid.Row="12" Grid.RowSpan="2"></Label>
+                        <TextBox Text="{Binding SelectedPhieuChatLuong.NgayCap, StringFormat=dd-MM-yyyy}" IsReadOnly="True" Grid.Column="3" Grid.Row="12" Grid.RowSpan="2"></TextBox>
+
+                        <DataGrid Name="dgrPhieuCanChiTiet" Grid.Column="0" Grid.Row="14" Grid.ColumnSpan="4" ScrollViewer.VerticalScrollBarVisibility="Auto" MaxHeight="200"
+                                          SelectionMode="Extended" SelectedItem="{Binding SelectedPhieuCanChiTiet, Mode=TwoWay}" ItemsSource="{Binding PhieuCanChiTiets}" AutoGenerateColumns="False">
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                                    <Setter Property="Background" Value="#2196F3"></Setter>
+                                    <Setter Property="Foreground" Value="White"></Setter>
+                                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Máng xuất" Binding="{Binding MangXuat}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Ca" Binding="{Binding Ca}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Ngày xuất" Binding="{Binding NgayThongKe, StringFormat=dd-MM-yyyy}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="NV Xuất hàng" Binding="{Binding NVXuatHang}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="NV Bảo vệ" Binding="{Binding NVBaoVe}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Tổng bắt đầu" Binding="{Binding SoTongPLC_TruocCan}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Tổng kết thúc" Binding="{Binding SoTongKetThuc}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="KL hàng" Binding="{Binding KLHang}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Trạng thái" FontWeight="Bold" Binding="{Binding TrangThai, Converter={StaticResource TrangThaiPhieuConverter}}" ></DataGridTextColumn>
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                                <Button Style="{StaticResource MaterialDesignRaisedButton}" Command="{Binding Path=DataContext.CmdInChiTiet, 
+                                                RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                            CommandParameter="{Binding}">In</Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Style="{StaticResource MaterialDesignRaisedButton}" Command="{Binding Path=DataContext.CmdShowCTKet, 
+                                                RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                            CommandParameter="{Binding}">Ct. Két</Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+
+                    </Grid>
+                </materialDesign:Card>
+            </StackPanel>
+            <StackPanel  Grid.Row="1">
+                <StackPanel.Resources>
+                    <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                        <Setter Property="Margin" Value="8"></Setter>
+                        <Setter Property="Width" Value="140"></Setter>
+                    </Style>
+                </StackPanel.Resources>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Command="{Binding CmdTaoPhieu}" Content="Tạo phiếu" IsEnabled="{Binding BtnTaoPhieuEnable}"></Button>
+                    <Button Command="{Binding CmdTamDung}" Content="{Binding BtnTamDungName}" IsEnabled="{Binding BtnTamDungEnable}"></Button>
+                    <Button Command="{Binding CmdKetThuc}" Content="Kết thúc" IsEnabled="{Binding PlcViewModel.DieuKienKetThuc, Source={StaticResource Locator}}"></Button>
+                    <!--<Button Command="{Binding CmdChotLuong}" Content="Chốt lượng" IsEnabled="{Binding BtnChotLuongEnable}"></Button>-->
+                    <Button Command="{Binding CmdKetThucChuDong}" IsEnabled="{Binding BtnKetThucChuDongEnable}" Content="Kết thúc chủ động" Background="#FF5252"></Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Command="{Binding CmdInNhiet}" IsEnabled="True" Content="In nhiệt"></Button>
+                    <!--<Button Command="{Binding CmdInA6}" IsEnabled="True" Content="In A6"></Button>-->
+                    <Button Command="{Binding CmdInA4}" IsEnabled="True" Content="In A4"></Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+
+
+</UserControl>

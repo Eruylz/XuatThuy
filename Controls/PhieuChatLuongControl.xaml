@@ -1,0 +1,107 @@
+﻿<UserControl x:Class="XuatThuy.Controls.PhieuChatLuongControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             xmlns:materialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            TextElement.FontWeight="Regular"
+            TextElement.FontSize="14"
+            TextOptions.TextFormattingMode="Ideal" 
+            TextOptions.TextRenderingMode="Auto"        
+            Background="{DynamicResource MaterialDesignPaper}"
+            FontFamily="{DynamicResource MaterialDesignFont}"
+             DataContext="{Binding PhieuChatLuongVM, Source={StaticResource Locator}}"
+             d:DesignHeight="768" d:DesignWidth="1066">
+    <Grid>
+        <materialDesign:Card Margin="5 0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="100"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <StackPanel>
+                    <DataGrid AutoGenerateColumns="False" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectedItem="{Binding SelectedPhieuChatLuong}"
+                          Margin="5 0" MaxHeight="500" ItemsSource="{Binding PhieuChatLuongs}" VerticalAlignment="Top">
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                                <Setter Property="Background" Value="#2196F3"></Setter>
+                                <Setter Property="Foreground" Value="White"></Setter>
+                                <Setter Property="FontWeight" Value="Bold"></Setter>
+                                <Setter Property="MinWidth" Value="100"></Setter>
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="ID" x:Name="dgrID">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding ID}" VerticalAlignment="Center"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Tên" MinWidth="100" x:Name="dgrTen">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Ten}" VerticalAlignment="Center"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <TextBox VerticalAlignment="Center" Text="{Binding Ten, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="Ngày cấp" MinWidth="130" x:Name="dgrNgayCap">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding NgayCap, StringFormat=dd-MM-yyyy}" VerticalAlignment="Center"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <DatePicker VerticalAlignment="Center" Text="{Binding NgayCap, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                            
+                            <DataGridTemplateColumn x:Name="dgrEdit">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Command="{Binding Path=DataContext.CmdEditPhieuChatLuong, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                            CommandParameter="{Binding}" IsEnabled="{Binding CanDelete}">Sửa</Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn x:Name="dgrDelete">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Command="{Binding Path=DataContext.CmdDeletePhieuChatLuong, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                            Background="Red" CommandParameter="{Binding}" IsEnabled="{Binding CanDelete}">Xóa</Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0 5">
+                        <Grid Width="{Binding ElementName=dgrID,Path=ActualWidth}">
+
+                        </Grid>
+                        <Grid Width="{Binding ElementName=dgrTen,Path=ActualWidth}">
+                            <TextBox Style="{StaticResource MaterialDesignTextBox}" Margin="5 0 0 0" Text="{Binding TenMoi}"></TextBox>
+                        </Grid>
+                        <Grid Width="{Binding ElementName=dgrNgayCap,Path=ActualWidth}">
+                            <DatePicker Margin="5 0" SelectedDateFormat="Short" SelectedDate="{Binding NgayCapMoi}" VerticalAlignment="Bottom"></DatePicker>
+                        </Grid>
+                        <Grid Width="{Binding ElementName=dgrEdit,Path=ActualWidth}">
+                            <Button Style="{StaticResource MaterialDesignRaisedButton}" Command="{Binding CmdAddPhieuChatLuong}" Margin="12 0 0 0" HorizontalAlignment="Center">Thêm</Button>
+                        </Grid>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </materialDesign:Card>
+    </Grid>
+</UserControl>

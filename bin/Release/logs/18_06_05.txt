@@ -1,0 +1,4 @@
+﻿07:53: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 11274155-17  C«ng ty TNHH mét thµnh viªn s¶n xuÊt th­¬ng m¹i vµ dÞch vô Thanh B×nh 1982    §¸ subbase B (Tr¹m nghiÒn sµng Hoµng Th¹ch) (4110010011)  1080001Kg     
+07:53: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+07:53: ERROR: Không ghi được vào bảng điện tử. Nội dung ghi: 20    50006    
+07:53: Exception message: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.

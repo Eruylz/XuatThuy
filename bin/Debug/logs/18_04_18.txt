@@ -1,0 +1,2 @@
+﻿14:31: ERROR: Không kết nối được với cơ sở dữ liệu
+14:31: ERROR MESSAGE: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)

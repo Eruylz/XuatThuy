@@ -1,0 +1,34 @@
+﻿<Window x:Class="XuatThuy.ViewModel.ChiTietCanWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:XuatThuy.ViewModel"
+        xmlns:converter="clr-namespace:XuatThuy.Utils"
+        mc:Ignorable="d"
+        Title="Chi tiết lần xuất" Height="450" Width="850">
+    <!--DataContext="{DynamicResource ViewModelChiTietCan}">-->
+    <Window.Resources>
+        <converter:TrangThaiPhieuConverter x:Key="TrangThaiPhieuConverter"></converter:TrangThaiPhieuConverter>
+        <converter:KetConverter x:Key="KetConverter"></converter:KetConverter>
+    </Window.Resources>
+    <DataGrid Name="dgrChiTietCan" ItemsSource="{Binding ChiTietCans}" AutoGenerateColumns="False">
+        <DataGrid.ColumnHeaderStyle>
+            <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                <Setter Property="Background" Value="#2196F3"></Setter>
+                <Setter Property="Foreground" Value="White"></Setter>
+            </Style>
+        </DataGrid.ColumnHeaderStyle>
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="Mẻ" Binding="{Binding Stt}"></DataGridTextColumn>
+            <DataGridTextColumn Header="Két" Binding="{Binding Ket, Converter={StaticResource KetConverter}}"></DataGridTextColumn>
+            <DataGridTextColumn Header="TL cân hàng" Binding="{Binding TLCan1}"></DataGridTextColumn>
+            <DataGridTextColumn Header="TL cân bì" Binding="{Binding TLCan2}"></DataGridTextColumn>
+            <DataGridTextColumn Header="TL thực giao" Binding="{Binding TLHang}"></DataGridTextColumn>
+            <DataGridTextColumn Header="Thời điểm cân hàng" Binding="{Binding ThoiDiemCan1}"></DataGridTextColumn>
+            <DataGridTextColumn Header="Thời điểm cân bì" Binding="{Binding ThoiDiemCan2}"></DataGridTextColumn>
+            <DataGridTextColumn Header="Tình trạng" FontWeight="Bold"
+                Binding="{Binding TrangThai, Converter={StaticResource TrangThaiPhieuConverter}}"></DataGridTextColumn>
+        </DataGrid.Columns>
+    </DataGrid>
+</Window>
