@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\bhha0\Desktop\XuatThuy\obj\x64\Release\
+C:\Users\bhha0\Source\Repos\Eruylz\XuatThuy\obj\x64\Release\
 XuatThuy
 none
 false
 TRACE
-C:\Users\bhha0\Desktop\XuatThuy\App.xaml
-17-2141457473
+C:\Users\bhha0\Source\Repos\Eruylz\XuatThuy\App.xaml
+18207472329
 1-388981679
-74-662602025
-96-576009630
-Controls\CaiDatControl.xaml;Controls\ChiTietCanControl.xaml;Controls\CRControl.xaml;Controls\DSPhieuCanControl.xaml;Controls\LoginControl.xaml;Controls\NotifyControl.xaml;Controls\NotifyPassControl.xaml;Controls\PhieuCanControl.xaml;Controls\PhieuChatLuongControl.xaml;Controls\RvControl.xaml;Controls\SoLoControl.xaml;Controls\ThongKeControl.xaml;Controls\TongQuanControl.xaml;View\ChiTietCanWindow.xaml;View\Login.xaml;View\MainWindow.xaml;StyleDictionary.xaml;
+73-1602989821
+931681833493
+Controls\CaiDatControl.xaml;Controls\ChiTietCanControl.xaml;Controls\DSPhieuCanControl.xaml;Controls\LoginControl.xaml;Controls\MaChiControl.xaml;Controls\NotifyControl.xaml;Controls\NotifyPassControl.xaml;Controls\PhieuCanControl.xaml;Controls\PhieuChatLuongControl.xaml;Controls\RvControl.xaml;Controls\SoLoControl.xaml;Controls\ThongKeControl.xaml;Controls\ThucXuatControl.xaml;Controls\TongQuanControl.xaml;View\ChiTietCanWindow.xaml;View\Login.xaml;View\MainWindow.xaml;StyleDictionary.xaml;
 
-False
+True
 
